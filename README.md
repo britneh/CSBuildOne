@@ -7,7 +7,7 @@ K-means Clustering is dividing a dataset into groups, consisting of similiar dat
     - Items arranged in a grocery store
         Similiar items are grouped together; produce
 
-Netflix, Amazon - use to make recommendations, based on previous purchases are previously watched 
+Netflix, Amazon uses for recommendations; based on previous purchases are previously watched media.
 
 The csv for this project was created in another notebook and then imported inside for use with the algorithm.  You can find associated code in create.ipynb.
 
@@ -21,7 +21,7 @@ K- means clustering can be broken down into 4 steps:
 
 * Step 4: Repeat steps 2 and 3 until the cluster assignments are not changed. Once the new cluster center is determined we want to repeat the process of calculating new centroids and getting clusters for those new centroids until there are no changes in cluster assignments, meaning we have reached convergence which is the most optimal state. 
 
-To make fit and make predictions: 
+To fit and make predictions: 
 The ‘fit’ method uses both ‘set_centroids’ and ‘find_nearest’ to label the dataset so that once we implement the ‘predict’ method with our sample data points, it can recommend the best cluster assignment. 
 
 ## test_kmeans.py uses the Sci-kit learn Kmeans
