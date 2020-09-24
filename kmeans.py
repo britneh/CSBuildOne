@@ -12,7 +12,7 @@ class Kmeans():
     def set_centroids(self):
         i = 0
         while i < self.centers:
-            #randomly choose k examples as initial centroids
+            #randomly choose k examples as temporary centroids
             random = np.random.randint(len(self.X))
             if i != 0:
                 if random != self.centroid_i[i-1]:
@@ -30,6 +30,7 @@ class Kmeans():
             self.centroids.append(centroid)
     
     def get_centroids(self, X, nearest_cent):
+        #the actual centroids, by calculating the mean
         sums = []
         counts = []
         averages = []
@@ -52,18 +53,23 @@ class Kmeans():
         return averages 
 
     def find_nearest(self, df, cntrds):
+        #calculate the nearest centroid to each data point
         last_cent = [np.random.choice([0,1,2])]*len(X)
         i = 0
         cntrds = self.centroids.copy()
         while True:
             if i>0:
                 cntrds = self.get_centroids(X, last_cent)
+            #distance between each point and each centroid 
             distances = scidist.cdist(X, cntrds)
+            #Nearest centroid to each point based on distance
             nearest_cent = np.argmin(distances, axis =1)
 
             if (list(nearest_cent) == list(last_cent)):
+                #if we've reached covergence
                 centroids = cntrds
                 return nearest_cent
+                #otherwise continue iteration
             else:
                 i += 1
                 last_cent = nearest_cent 
@@ -116,5 +122,5 @@ if __name__ == '__main__':
     print("*** Clusters ***", kmeans.labels)
     print()
     
-    sample = [[6,9],[6,11]]
-    print(f"*** Prediction for {sample} *** \n", kmeans.predict([[6,9],[6,11]]),'\n')
+    sample = [[3,6],[6,-20]]
+    print(f"*** Prediction for {sample} *** \n", kmeans.predict(sample),'\n')

@@ -20,3 +20,9 @@ Select the number of clusters to be identified
 Step 2: Randomly select 3 distinct data points
 
 Step 3: Measure distance between the first point and the 3 clusters 
+
+
+Created a csv in another notebook and imported inside for use with the algorithm.  
+
+
+K means is best used when the number of cluster centers is specified to well defined list of types. 
