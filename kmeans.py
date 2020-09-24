@@ -61,7 +61,7 @@ class Kmeans():
             if i>0:
                 cntrds = self.get_centroids(X, last_cent)
             #distance between each point and each centroid 
-            distances = scidist.cdist(X, cntrds)
+            distances = scidist.cdist(X, cntrds, 'euclidean')
             #Nearest centroid to each point based on distance
             nearest_cent = np.argmin(distances, axis =1)
 
@@ -122,5 +122,5 @@ if __name__ == '__main__':
     print("*** Clusters ***", kmeans.labels)
     print()
     
-    sample = [[3,6],[6,-20]]
+    sample = [[4,20]]
     print(f"*** Prediction for {sample} *** \n", kmeans.predict(sample),'\n')
