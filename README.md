@@ -29,3 +29,4 @@ Use test_kmeans.py to compare the algorithm predictions to that of Sci-kit learn
 
 K means is best used when the number of cluster centers is specified to well defined list of types so that you can best determine k.
 
+Blog can be found at https://medium.com/@brhacket/exploring-the-k-means-clustering-algorithm-3a05da749dd7
